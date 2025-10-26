@@ -34,7 +34,7 @@
                 <p>
                     <?php
                         $login_status = "Not logged in.";
-                        
+
                         echo $login_status;
                     ?>
                 </p>
@@ -46,8 +46,14 @@
                     include "secrets.php";
                     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
                     $mysqli = mysqli_connect("resurrect", "root", "$password", "resurrect", 3306);
-                    $mysqli->set_charset('utf8mb4');
-                    printf("Success... %s\n", $mysqli->host_info);
+                    mysqli_set_charset($mysqli, 'utf8mb4');
+                    $root_categories = mysqli_query($link, "SELECT * FROM Categories WHERE parent=0");
+                    echo '<div class="category">
+                <h3><a href="./index.php?category=N">Announcements</a></h3>
+                <p>
+                    Important news for the whole forum.
+                </p>
+                </div>'
                 ?>
                 <!--
                 <div class="category">
