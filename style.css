@@ -16,9 +16,9 @@ body {
   margin:auto;
   max-width:1100px;
   min-height:100%;
-  padding:24px 42px;
+  padding:1.5rem 3.5rem;
   background-color:black;
-  font-size:12px;
+  font-size:16px;
   font-family:"Verdana";
   line-height:1.6;
   color:white
@@ -28,13 +28,13 @@ a {
   color:#80bce9
 }
 
-a.button {
+a.button, button {
   background-color:#333;
   color:#999;
   font-family:"Verdana";
-  font-size:11px;
+  font-size:0.9rem;
   font-weight:bold;
-  padding:3px 6px;
+  padding:0.25rem 0.5rem;
   user-select:none;
   text-decoration:none;
 }

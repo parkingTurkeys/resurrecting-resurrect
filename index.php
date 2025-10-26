@@ -16,7 +16,7 @@
         <!-- the base code here is from resurrect.cx -->
         <header>
             <div id="header_left">
-                <h1><a href="http://web.archive.org/web/20250910091414/https://resurrect.cx/">resurrect.cx</a></h1>
+                <h1><a href="index.php">resurrect.cx</a></h1>
                 <p id="news">
                 <b>News:</b>
                 <span>
@@ -36,6 +36,11 @@
         </header>
         <main>
             <h2>Categories</h2>
+                <?php 
+                    include "secrets.php";
+                    $connect = mysqli_connect("resurrect", "root", "$password", "resurrect", 3306);
+                    echo($connect);
+                ?>
                 <!--
                 <div class="category">
                 <h3><a href="./index.php?category=N">Announcements</a></h3>
