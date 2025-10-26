@@ -31,15 +31,23 @@
                 </div>
             </div>
             <div id="header_right">
-                <p>Not logged in.</p>
+                <p>
+                    <?php
+                        $login_status = "Not logged in.";
+                        
+                        echo $login_status;
+                    ?>
+                </p>
             </div>
         </header>
         <main>
             <h2>Categories</h2>
                 <?php 
                     include "secrets.php";
-                    $connect = mysqli_connect("resurrect", "root", "$password", "resurrect", 3306);
-                    echo($connect);
+                    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+                    $mysqli = mysqli_connect("resurrect", "root", "$password", "resurrect", 3306);
+                    $mysqli->set_charset('utf8mb4');
+                    printf("Success... %s\n", $mysqli->host_info);
                 ?>
                 <!--
                 <div class="category">
