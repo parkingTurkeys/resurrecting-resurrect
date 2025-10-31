@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php include "global.php" ?>
 <html>
     <head>
         <title>resurrecting resurrect</title>
@@ -9,6 +10,7 @@
         <meta name="viewport" content="width=device-width">
         <link rel="stylesheet" href="./style.css">
         <link rel="icon" href="./favicon.ico" type="image/x-icon">
+
     </head>
     <body>
         <!-- the base code here is from resurrect.cx -->
@@ -18,31 +20,28 @@
                 <p id="news">
                 <b>News:</b>
                 <span>
-                    hello! this is an unfinished version of a resurrected resurrect
+                    <?php echo $announce ?>
                     <br>
                     – p-t
                 </span>
                 </p>
                 <p>Sign-ups are <b>closed.</b></p>
                 <div>
-                <a href="./help.html" class="button">Help</a>
+                <a href="./help" class="button">Help</a>
                 </div>
             </div>
             <div id="header_right">
-                <p>Not logged in.</p>
             </div>
         </header>
         <main>
-            <h2>Help</h2>
-            <p><b>resurrect.cx</b> is a forum for a certain type of hacker.</p>
-            <p>We do things differently. We do things that matter. We do things that change the way things are.</p>
-            <p>
-                The original forum was maintained by <b>rez</b> under oversight of <b><a href="https://hackclub.com/" target="_blank" rel="noopener noreferrer">Hack Club</a></b>.
-            </p>
-            <p>
-                Now I [p-t] am trying to make a revived and functional version.
-            </p>
-            <p>If you need something, email me at <a href="mailto:p-t@hackclub.app">p-t [at] hackclub [dot] app</a>.</p>
+            <form action = "login-script.php" method="post">
+                <label for = "username">Username:</label><br />
+                <input name = "username" id = "username" type = "text"><br />
+                <label for = "password">Password:</label><br />
+                <input name = "password" id = "password" type = "password"><br />
+                <label for = "stay_signed_in">Check this box to stay signed in:</label>
+                <input name = "stay_signed_in" id = "stay_signed_in" type = "checkbox"><br />
+                <button type="submit">Login</button>
+            </form>
         </main>
     </body>
-</html>

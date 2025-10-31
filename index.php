@@ -1,5 +1,6 @@
 
 <!DOCTYPE html>
+<?php include "global.php" ?>
 <html>
     <head>
         <title>resurrecting resurrect</title>
@@ -20,7 +21,7 @@
                 <p id="news">
                 <b>News:</b>
                 <span>
-                    hello! this is an unfinished version of a resurrected resurrect
+                    <?php echo $announce ?>
                     <br>
                     – p-t
                 </span>

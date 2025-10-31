@@ -1,0 +1,49 @@
+-------------------+--------------+------+-----+---------+----------------+
+| Field             | Type         | Null | Key | Default | Extra          |
++-------------------+--------------+------+-----+---------+----------------+
+| id                | int unsigned | NO   | PRI | NULL    | auto_increment |
+| name              | varchar(150) | NO   |     | NULL    |                |
+| description       | varchar(500) | YES  |     | NULL    |                |
+| moderator         | char(3)      | YES  |     | NULL    |                |
+| is_archived       | smallint     | YES  |     | NULL    |                |
+| category_hr_thing | bit(1)       | NO   |     | NULL    |                |
+| parent            | smallint     | YES  |     | NULL    |                |
++-------------------+--------------+------+-----+---------+----------------+
+INSERT INTO categories (name, description, moderator, is_archived, category_hr_thing, parent ) VALUES
+( "Projects (Archive)", "Talk about what you're working on.", NULL, 1, 1, 4 ),
+( "Site Discussion (Archive)", "Talk about this forum.", "rez", 1, 1, 4 ),
+( "Advice (Archive)", "Get help with non-technical aspects of development.", NULL, 1, 1, 4);
+
+ALTER TABLE users ADD COLUMN flag BIT
+
+
+ a:3:{
+    i:0;a:7:{i:0;s:1:"2";i:1;s:13:"Announcements";i:2;s:35:"Important news for the whole forum.";i:3;N;i:4;s:1:"1";i:5;s:1:"1";i:6;s:1:"1";}i:1;a:7:{i:0;s:1:"3";i:1;s:7:"The Jam";i:2;s:44:"Discussion of resurrect.cx's forum-wide jam.";i:3;N;i:4;s:1:"1";i:5;s:1:"1";i:6;s:1:"1";}i:2;a:7:{i:0;s:1:"4";i:1;s:7:"Archive";i:2;s:26:"Posts from before The Jam.";i:3;N;i:4;s:1:"1";i:5;s:1:"1";i:6;s:1:"1";}}
+
+flags:
+0: moderator
+1: archived
+2: banned
+
+mysql> DESCRIBE users;
++------------+-------------------+------+-----+---------+----------------+
+| Field      | Type              | Null | Key | Default | Extra          |
++------------+-------------------+------+-----+---------+----------------+
+| id         | smallint unsigned | NO   | PRI | NULL    | auto_increment |
+| username   | char(3)           | NO   |     | NULL    |                |
+| bio        | varchar(1000)     | YES  |     | NULL    |                |
+| email      | varchar(100)      | YES  |     | NULL    |                |
+| datejoined | date              | YES  |     | NULL    |                |
+| flag       | bit(1)            | YES  |     | NULL    |                |
++------------+-------------------+------+-----+---------+----------------+
+INSERT INTO users (username, flag, colour ) VALUES
+ ("nop", 0x01, "669999"),
+ ("bug", 0x01, "99FF66"),
+ ("awa", 0x01, "99CCFF"),
+ ("six", 0x01, "666666"),
+ ("glo", 0x01, "FFFF66"),
+ ("sok", 0x01, "FFFF99"),
+ ("vir", 0x01, "FF0066"),
+ ("gab", 0x02, "990000");
+
+TOPICS:
