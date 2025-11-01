@@ -85,3 +85,27 @@ INSERT INTO topics (name, started_by, category, is_locked) VALUES
 INSERT INTO topics (name, started_by, category, is_locked, locked_by) VALUES
  ("Tetris implementation", "abc", 5, 1, "rez"),
  ("You are doing it wrong", "gab", 6, 1, "rez");
+
+CREATE TABLE posts
+(
+id  INT unsigned NOT NULL AUTO_INCREMENT,
+body TEXT,
+author CHAR(3),
+PRIMARY KEY     (id)
+);
+
++--------+--------------+------+-----+---------+----------------+
+| Field  | Type         | Null | Key | Default | Extra          |
++--------+--------------+------+-----+---------+----------------+
+| id     | int unsigned | NO   | PRI | NULL    | auto_increment |
+| body   | text         | YES  |     | NULL    |                |
+| author | char(3)      | YES  |     | NULL    |                |
+| topic  | int unsigned | YES  |     | NULL    |                |
++--------+--------------+------+-----+---------+----------------+
+
+INSERT INTO posts (body, author, topic) VALUES
+ ("<p>As in, what are some examples of things that should and should not be posted to this forum?</p><p>The statement on the help page is a good start, but it's pretty vague - I think it would be good to have a more specific list of dos and don'ts.</p>", "glo", 14),
+ ("<p>Maybe I can help write up some voting mechanisms :smile:</p>", "bug", 14),
+ ("<p>this site doesnt even have a reaction system dude. dont turn this into a game of nomic</p>, "six", 14),
+ ("<p>If we kept all the rules in one place, it would be the longest page on the forum.</p><p>If you want to know if something is allowed, make a new topic for it. Period.</p><p>I expect everybody on this forum to put effort into finding what they need.</p>", "rez", 14),
+ 
