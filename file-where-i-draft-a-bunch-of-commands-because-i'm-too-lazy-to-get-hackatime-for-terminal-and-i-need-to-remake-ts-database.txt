@@ -47,3 +47,41 @@ INSERT INTO users (username, flag, colour ) VALUES
  ("gab", 0x02, "990000");
 
 TOPICS:
+name: [zB: The Jam has Begun] : VARCHAR(255)
+started_by: [zB: rez] : CHAR(3) NOT NULL
+is_locked: [1/0] : BIT
+locked_by: [zB: rez || NULL] : CHAR(3)
+category: [zB: 1] : smallint
+
+CREATE TABLE topics
+(
+id  INT unsigned NOT NULL AUTO_INCREMENT,
+name VARCHAR(255) NOT NULL,
+is_locked BIT,
+started_by CHAR(3) NOT NULL,
+locked_by CHAR(3),
+category SMALLINT,
+PRIMARY KEY     (id)
+);
+
+INSERT INTO topics (name, started_by, category, is_locked) VALUES
+ ("Taffy", "mio", 5, 0),
+ ("Nicto", "vir", 5, 0),
+ ("Meaning", "vir", 7, 0),
+ ("How to get attention?", "blu", 7, 0),
+ ("I'm back", "rez", 2, 0),
+ ("A short hiatus", "rez", 2, 0),
+ ("Use of AI", "rez", 3, 0),
+ ("Time tracking", "lux", 3, 0),
+ ("What does a valid submission look like?", "rez", 3, 0),
+ ("Announcing The Jam", "rez", 3, 0),
+ ("Encouraging participation", "nop", 6, 0),
+ ("Association with Hack Club", "awa", 6, 0),
+ ("Artificial intelligence (AI)", "nop", 6, 0),
+ ("What is allowed here?", "glo", 6, 0);
+ 
+
+ 
+INSERT INTO topics (name, started_by, category, is_locked, locked_by) VALUES
+ ("Tetris implementation", "abc", 5, 1, "rez"),
+ ("You are doing it wrong", "gab", 6, 1, "rez");
