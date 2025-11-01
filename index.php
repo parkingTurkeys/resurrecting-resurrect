@@ -50,16 +50,30 @@
                     mysqli_set_charset($mysqli, 'utf8mb4');
                     
                         if (array_key_exists("category", $_GET)) {
-                            $cat = (int)$_GET["category"];
+                            $cate = (int)$_GET["category"];
                             
                         } else {
-                            $cat = 0;
+                            $cate = 0;
                         };
-                        $viewable_categories = mysqli_query($mysqli, "SELECT * FROM Categories WHERE parent=$cat");
+                        $viewable_categories = mysqli_query($mysqli, "SELECT * FROM categories WHERE parent=$cate");
                         $catstoshow_array = $viewable_categories->fetch_all(MYSQLI_ASSOC);
                         foreach ($catstoshow_array as $cat) {
                             echo '<div class = "category"><h3><a href="./index.php?category='. $cat["id"] . '">' . $cat["name"] . '</a></h3><p>' . $cat["description"] . '</p></div>';
-                        }
+                        };
+                ?>
+                <!-- time for the topics! -->
+                <?php
+                    /*
+                    <h4><a href="/web/20250828114724/https://resurrect.cx/topic/3/">Nicto</a></h4>
+                    <p>
+                        <i>Started by: <b class="light-gray">vir</b></i>
+                    </p>
+                    */
+                    $viewable_topics = mysqli_query($mysqli, "SELECT * FROM topics WHERE category=$cate");
+                    $topicsstoshow_array = $viewable_topics->fetch_all(MYSQLI_ASSOC);
+                    foreach ($topicsstoshow_array as $topic) {
+                        echo '<div id = "topic"><h4><a href="topic.php?topic='. $topic["id"] . '">' . $topic["name"] . '</a></h3><p><i>Started by: <b class="light-gray">' . $topic["started_by"] . '</b></i></p></div>';
+                    };
                 ?>
                 <!--
                 <div class="category">
