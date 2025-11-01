@@ -56,7 +56,10 @@
                         } else {
                             $cate = 0;
                         };
-                        $viewable_categories = mysqli_query($mysqli, "SELECT * FROM categories WHERE parent=$cate");
+                        $stmt = $mysqli->prepare("SELECT * FROM categories WHERE parent=?");
+                        $stmt->bind_param("i", $cate);
+                        $stmt->execute();
+                        $viewable_categories = mysqli_stmt_get_result($stmt);
                         $catstoshow_array = $viewable_categories->fetch_all(MYSQLI_ASSOC);
                         foreach ($catstoshow_array as $cat) {
                             echo '<div class = "category"><h3><a href="./index.php?category='. $cat["id"] . '">' . $cat["name"] . '</a></h3><p>' . $cat["description"] . '</p></div>';
@@ -70,7 +73,10 @@
                         <i>Started by: <b class="light-gray">vir</b></i>
                     </p>
                     */
-                    $viewable_topics = mysqli_query($mysqli, "SELECT * FROM topics WHERE category=$cate");
+                    $stmt = $mysqli->prepare("SELECT * FROM topics WHERE category=?");
+                    $stmt->bind_param("i", $cate);
+                    $stmt->execute();
+                    $viewable_topics = mysqli_stmt_get_result($stmt);
                     $topicsstoshow_array = $viewable_topics->fetch_all(MYSQLI_ASSOC);
                     foreach ($topicsstoshow_array as $topic) {
                         echo '<div id = "topic"><h4><a href="topic.php?topic='. $topic["id"] . '">' . $topic["name"] . '</a></h3><p><i>Started by: <b class="light-gray">' . $topic["started_by"] . '</b></i></p></div>';
