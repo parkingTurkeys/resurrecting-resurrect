@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="en">
 <?php include "global.php" ?>
 <html>
     <head>
