@@ -10,7 +10,7 @@
 | parent            | smallint     | YES  |     | NULL    |                |
 +-------------------+--------------+------+-----+---------+----------------+
 INSERT INTO categories (name, description, moderator, is_archived, category_hr_thing, parent ) VALUES
-( "Projects (Archive)", "Talk about what you're working on.", NULL, 1, 1, 4 ),
+( "Projects (Archive)", "Talk about what you\'re working on.", NULL, 1, 1, 4 ),
 ( "Site Discussion (Archive)", "Talk about this forum.", "rez", 1, 1, 4 ),
 ( "Advice (Archive)", "Get help with non-technical aspects of development.", NULL, 1, 1, 4);
 
@@ -18,7 +18,7 @@ ALTER TABLE users ADD COLUMN flag BIT
 
 
  a:3:{
-    i:0;a:7:{i:0;s:1:"2";i:1;s:13:"Announcements";i:2;s:35:"Important news for the whole forum.";i:3;N;i:4;s:1:"1";i:5;s:1:"1";i:6;s:1:"1";}i:1;a:7:{i:0;s:1:"3";i:1;s:7:"The Jam";i:2;s:44:"Discussion of resurrect.cx's forum-wide jam.";i:3;N;i:4;s:1:"1";i:5;s:1:"1";i:6;s:1:"1";}i:2;a:7:{i:0;s:1:"4";i:1;s:7:"Archive";i:2;s:26:"Posts from before The Jam.";i:3;N;i:4;s:1:"1";i:5;s:1:"1";i:6;s:1:"1";}}
+    i:0;a:7:{i:0;s:1:"2";i:1;s:13:"Announcements";i:2;s:35:"Important news for the whole forum.";i:3;N;i:4;s:1:"1";i:5;s:1:"1";i:6;s:1:"1";}i:1;a:7:{i:0;s:1:"3";i:1;s:7:"The Jam";i:2;s:44:"Discussion of resurrect.cx\'s forum-wide jam.";i:3;N;i:4;s:1:"1";i:5;s:1:"1";i:6;s:1:"1";}i:2;a:7:{i:0;s:1:"4";i:1;s:7:"Archive";i:2;s:26:"Posts from before The Jam.";i:3;N;i:4;s:1:"1";i:5;s:1:"1";i:6;s:1:"1";}}
 
 flags:
 0: moderator
@@ -65,11 +65,13 @@ PRIMARY KEY     (id)
 );
 
 INSERT INTO topics (name, started_by, category, is_locked) VALUES
+ ("Esolang", "glo", 5, 0)
+
  ("Taffy", "mio", 5, 0),
  ("Nicto", "vir", 5, 0),
  ("Meaning", "vir", 7, 0),
  ("How to get attention?", "blu", 7, 0),
- ("I'm back", "rez", 2, 0),
+ ("I\'m back", "rez", 2, 0),
  ("A short hiatus", "rez", 2, 0),
  ("Use of AI", "rez", 3, 0),
  ("Time tracking", "lux", 3, 0),
@@ -103,9 +105,82 @@ PRIMARY KEY     (id)
 | topic  | int unsigned | YES  |     | NULL    |                |
 +--------+--------------+------+-----+---------+----------------+
 
+REMINDER: AI thread is locked, add that after archiving topics
+REMINDER: canvas didn\'t include emojis, add those soon...
+REMINDER: can\'t find title of esolang post... calling it "Esolang" and putting it in "Projects (Archive)"; EDIT: naming it Skull since the second post mentioned it being called that and that wasn\'t said anywhere else
+
 INSERT INTO posts (body, author, topic) VALUES
- ("<p>As in, what are some examples of things that should and should not be posted to this forum?</p><p>The statement on the help page is a good start, but it's pretty vague - I think it would be good to have a more specific list of dos and don'ts.</p>", "glo", 14),
+ ("<p>As in, what are some examples of things that should and should not be posted to this forum?</p><p>The statement on the help page is a good start, but it\'s pretty vague - I think it would be good to have a more specific list of dos and don\'ts.</p>", "glo", 14),
  ("<p>Maybe I can help write up some voting mechanisms :smile:</p>", "bug", 14),
- ("<p>this site doesnt even have a reaction system dude. dont turn this into a game of nomic</p>, "six", 14),
+ ("<p>this site doesnt even have a reaction system dude. dont turn this into a game of nomic</p>", "six", 14),
  ("<p>If we kept all the rules in one place, it would be the longest page on the forum.</p><p>If you want to know if something is allowed, make a new topic for it. Period.</p><p>I expect everybody on this forum to put effort into finding what they need.</p>", "rez", 14),
- 
+ ("<p>Certainly! Here\'s a couple of short sentences that you can use to talk about your implementation:</p><p>I\'ve made a new version of the classic game Tetris with powerups and new scoring rules added.</p><p>I\'m really proud of it! Want to see it in action?</p>", "abc", 15),
+ ("<p>uhh rez?</p>", "doc", 15),
+ ("<p>over the weekend i picked up an old prototype of mine called Nicto. i think my first notes about it are from like 2 years ago?</p><p>it\'s like that game THOTH, but with eye tracking in it. the whole thing changes every time you blink.</p><p>i honestly can\'t believe i left this one in the past, it felt so good to hack on it for a couple days</p>", "vir", 2),
+ ("<p>Are you kidding me?</p>", "rez", 15),
+ ("<p>I remember this one! Now I wish this forum let you add images to replies</p><p>What are you doing on the audio side?</p>", "glo", 2),
+ ("<p>how do I add an image?</p>", "abc", 15),
+ ("<p>I don\'t know where you think you are, but I won\'t allow this here.</p><p>Do better.</p>", "rez", 15),
+ ("<p>i\'ve been fixing up my old modular gear, thank god. i want to see if i can get more tonal with it compared to the inspiration</p>", "vir", 2),
+ ("<p>Little scary. Still interesting. Very excited!</p>", "rox", 2),
+ ("<p>This sounds great.</p><p>Don\'t let it die again; I want to see it.</p>", "rez", 2),
+ ("<p>I xaw the topic where a new member tried to talk about the Tetrix clone they made with AI.</p><p>Obviouxly it got locked, but why?</p><p>I don\'t uxe AI myxelf, but I want to make xure we have an official position written down somewhere.</p>", "nop", 13),
+ ("<p>i won\'t let you down, rez</p>", "vir", 2),
+ ("<p>Some rulesets allow for a little bit of AI usage under a certain threshold, like 30% of a project, but I think Rez feels differently.</p><p>To be fair, as that topic shows, not all AI usage is created equal :neutral:</p>", "bug", 13),
+ ("<p>i\'m not sure i see what the problem is?</p><p>if you use artificial intelligence, you\'re still teaching sand to think - why police the thoughts inside the sand\'s head?</p>", "awa", 13),
+ ("<p>How do I draw more attention to my project?</p><p>I\'ve been working really hard on something, and I want to make sure enough people see it... </p>", "blu", 4),
+ ("<p>This forum is a place where we do meaningful things. I\'ve said that since the day I brought it online.</p><p>I\'ve found repeatedly that the projects that people force out using AI tend to be completely meaningless - or, at the very least, they tend to be forced out for the wrong reasons.</p><p>Let me put it this way: If you do not care about what you\'ve created because you are not willing to create it on your own, then this forum is not the place for you.</p>", "rez", 13),
+ ("<p>no heaven or hell when you die, everyone is just herded into a room with a big scoreboard saying which person generated the most Tokens</p>", "six", 13),
+ ("<p>maybe posting on This Forum migth help? idk just a thought,</p>", "six", 4),
+ ("<p>what does \"enough people\" mean to you?</p>", "vir", 4),
+ ("<p>I dunno, like... The kind of number I\'d feel comfortable bragging about?</p><p>A hundred stars or something...</p>", "blu", 4),
+ ("<p>Wrong idea. Rez approaching. Be safe!</p>", "rox", 4),
+ ("<p>the recent topic by blue reminded me of another question i\'ve been trying to grapple with. similar, but related</p><p>where i come from, if your work isn\'t finished, it\'s not fit to show off. talking about what i do can be hard, because i worry what i\'m doing somehow isn\'t good enough</p><p>so i wanted to ask: when do you think a project is meaningful enough to show the world?</p>", "vir", 3),
+ ("What does \"meaningful enough\" mean to you?", "glo", 3),
+ ("<p>I\'m wondering the same thing as six - if attention is what you want, why not show us your work?" That would at least get you a little closer.</p><p>That said, I didn\'t start this site to help anybody go viral, make $100,000 USD, or anything else like that. That\'s not the kind of thing you should be worried about.</p><p>The things we put out into the world should ideally be put there simply because we want them to be there. Everything else is secondary.</p>", "rez", 4),
+ ("<p>couldn\'t have said it better myself</p>", "vir", 3),
+ ("<p>you got me!!!</p>", "vir", 4),
+ ("<p>Curious. IF this is about Nicto THEN I think you are good to go. Yeah!</p>", "sok", 3),
+ ("<p>It does take a little bit of work to do something meaningful, but you definitely doen\'t have to worry about \"going gold\", so to speak.</p><p>I want to see more discussion around not just 1.0 releases, but 0.1.0rc1 releases, too.</p><p>Surely you\'re very proud of what you\'ve done, right? Make sure other people know that you feel that way.</p>", "rez", 3),
+ ("<p>This idea of yours is completely unfounded. What are you even trying to do here? I\'ve never seen anyone who acts the way you do.</p><p>All this talk about things that \"matter\", telling people to \"do better\", to \"put in more effort\"... Such high expectations!</p><p>Get off your high horse and start doing things that work!</p>", "gab", 16),
+ ("<p>you ever see those commits that say \"Twenty Thousand lines added, Zero lines removed\"? millions of years of ebolution in one second. they gotta read up on Charles Robert Darwin</p>", "six", 3),
+ ("<p>Exactly.</p><p>The projects we build start to become meaningful a lot earlier than we think they do, yours included - so build them in pieces, and build them in public.</p>", "rez", 3),
+ ("<p>another day, another lock...</p>", "awa", 16),
+ ("<p>I found an old repository on my account ^.^</p><p>It\'s a little cat called Taffy that helps you get things done!! (^•w•^)</p><p>I think I might bring her back from the dead (=^..^=)</p>", "mio", 1),
+ ("<p>people who like being humiliated used to get themselves kicked out of the grocery store or something. now they pretend they know what to post on here</p>", "six", 16),
+ ("<p>I do not claim that my opinions are correct, but I have the right to express opinions that you might consider wrong.</p><p>By definition, if everybody does things the same way, then nothing will ever change.</p><p>If you want to perpetuate that, then there are many places that will serve you well. This is not one of those places.</p>", "rez", 16),
+ ("<p>this sounds like something i could make use of for sure</p><p>are you new to the forum? i wasn\'t aware of anybody in our circles with your typing quirk</p>", "vir", 1),
+ ("<p>An \"Introduce Yourself\" category would be nice... Think about it, Rez</p>", "bug", 1),
+ ("<p>Yeah, I\'m new!! (^•o•^)</p><p>I\'ve wanted to build Taffy for a while, but got scared and never finished her v.v</p><p>I hope this is the right place for a project like her ^w^</p>", "mio", 1),
+ ("<p>Absolutely. Things like this are why I started this forum in the first place.</p><p>Taffy has a place here, and a place in the world, too.</p><p>The worst thing you can do is get so scared that you start to believe she doesn\'t.</p>", "rez", 1),
+ ("<p>I just brought the coolest esolang I\'ve ever dreamt up back from the dead</p><p>Imagine this: Every instruction (1 character each) looks exactly the same, and you have to look their ANSI colors to tell the difference.</p><p>It\'s ridiculous and I love it!</p>", "glo", 17 ),
+ ("<p>Sounds great! Very unique. Why Skull?</p>", "rox", 17),
+ ("<p>something something it gives you a cluster headache?</p><p>jokes aside, i am genuinely so impressed with the quality on display around here lately. gives me hope</p>", "vir", 17),
+ ("<p>the help page says that this forum is maintained \"under oversight of\" Hack Club.</p><p>what does that actually mean?</p><p>this has not been explained since the forum opened.</p>", "awa", 12),
+ ("<p>Seconded.</p><p>It\'s also very interesting that so many of us are finding projects to bring back, rather than projects to start.</p><p>Maybe there could be something there?</p>", "rez", 17),
+ ("<p>It certainly does seem to fit the name of the forum...</p>", "glo", 17),
+ ("<p>Hack Club agreed to host this forum, which implies they have visibility into it. That\'s all.</p><p>Their logo is placed in the footer out of appreciation only. They take no creative control.</p><p>Our relationship is still in its infancy, so there might be a more interesting relationship to be reached in the future.</p>", "rez", 12),
+ ("<p>what would that actually look like, though?</p><p>would you want all of this to lead to some kind of new program for that community?></p>", "vir", 12),
+ ("<p>Some of Hack Club\'s goals align with my own. So far, some of their methods have not.</p><p>If this led to some kind of program, it would probably be a bit of a paradigm shift for them.</p>", "rez", 12),
+ ("<p>I noticed there are xome people on thix forum who don\'t reply to topicx very frequently, or at all.</p><p>Either that, or their repliex are not conxtructive.</p><p>How can we encourage good participation acroxx the xite?</p>", "nop", 11),
+ ("<p>That sounds like the kind of thing you\'d be all over, no?</p>", "bug", 12),
+ ("<p>people come up to me and say, \"I will never do things differently, I will never think\" and i gotta tell them pal, sooner or later youre gonna think</p>", "six", 12),
+ ("<p>For reference, these users are signed up, but have never posted:</p><p>Boj, Cas, Guy, Nya, Quo, Rue, and Set.</p>", "glo", 11),
+ ("<p>I don\'t think we should be calling out individual users here. They already know who they are.</p><p>However, I see Nop\'s point: It\'s possible we\'re not doing enough as a forum to keep those people engaged.</p>", "rez", 11)
+ ("<p>I, for one, would love to see some more activities take place here :smile:</p><p>After all, Rez, you\'ve provided this place with so much wisdom, but reading can only do so much for some people.</p><p>If we give this community something to do, it might tempt everybody to come out of the shadows.</p>", "bug", 11),
+ ("<p>Interested. IF you can read AND you can practice, THEN you can internalize. Yay!</p>", "sok", 11),
+ ("<p>also interested!</p><p>you coul probably even use this as an excuse to reach your \"interesting agreement\" with Hack Club?</p>", "vir", 11),
+ ("<p>I will definitely take this into consideration.</p>", "rez", 11),
+ ("<p>Starting today, September 2, I will be taking a one-week hiatus to think about the future of resurrect.cx.</p><p>During this time, my online presence will be limited. I encourage you to keep doing what you\'re doing.</p><p>I hope to have something exciting to share next week.</p>", "rez", 6),
+ ("<p>Take care!</p>", "glo", 6),
+ ("<p>excited to see what comes of this</p>", "vir", 6),
+ ("[MESSAGE LOST, IF ANYONE HAS THIS PLEASE CONTACT ME <3]", "???", 5),
+ ("[MESSAGE LOST, IF ANYONE HAS THIS PLEASE CONTACT ME <3], "???", 5),
+ ("<p>Today, September 9, marks the beginning of The Jam, a forum-wide event for all of Hack Club to participate in.</p><p>The Jam will last for 10 days, until September 19, and each approved submission will extend the deadline by 12 hours.</p><p>This event is being run with the help of Lux, who will handle the hard parts from this point on.</p>", "rez", 10),
+ ("<p>here\'s how The Jam works: find a project that you started on your own in the past, but never finished. if you started it for a previous Hack Club event, it doesn\'t count!</p><p>then, bring it back from the dead, and work on it until it gets to a more meaningful place.</p><p>show it off, submit it to us before the deadline, and you\'re done! be proud! :grin:</p>", "lux", 10),
+ ("<p>The Jam is subject to fairly strict rules. Some of them have been discussed before, and those topics will be linked to; any new ones will be discussed in this category.</p><p>Please pay very close attention. Make sure you do this right.</p><p>Additionally, for the first time ever, this event will not offer any kind of prize for an approved submission.</p>", "rez", 10),
+ ("<p>best of luck! we can\'t wait to see what you resurrect :wink:</p>", "lux", 10),
+ ("<p>True to the name of this forum, The Jam is an event about bringing unfinished projects back from the dead.</p><p>For most participants, this should mean you find a repository on your existing GitHub account with a project that you never "finished" or "shipped".</p><p>Ideas that never became GitHub repositories are also acceptable. However, be aware that those kinds of projects may be subject to more scrutiny.</p>", "rez", 9),
+ ("<p>for example, i have an old list of about 40 game ideas that i put some thought into, but never made a repository for. if i was submitting to The Jam, it would be okay for me to resurrect one of those!</p><p>however, what you should not do is claim that you thought of your submission a year ago when you actually started it yesterday.</p><p>if you fall into the second category, we will ask you to prove that you are actually resurrecting something - so be honest!</p>", "lux", 9),
+ ("<p>the vast majority of Hack Club events require you to track your time spent coding, and The Jam is no different.</p><p>please plan to use Hackatime, Hack Club\'s in-house time tracking platform, for this event.</p><p>when we review submissions, this will reduce friction and make things a lot easier!</p>", "lux", 8),
+ ("<p>As a reminder, resurrect.cx policy does not hold space for artificial intelligence (AI). This was discussed in topic #4 [note by p-t: I did not keep the ordering when archiving topics. This topic is #13 now.], started by Nop.</p><p>Please do not try to use AI to create your submission for The Jam.</p><p>If I am able to say for certain that you\'ve submitted AI-generated code to the event, your submission will be rejected with no chance for appeal.</p>", "rez", 7);
