@@ -86,7 +86,7 @@ main {
 }
 
 main p {
-  margin-bottom:6px
+  margin-bottom:0.5rem;
 }
 
 footer {
@@ -132,11 +132,11 @@ hr {
   margin-bottom:20px
 }
 
-.gray {
+.grey {
   color:#999
 }
 
-.light-gray {
+.light-grey {
   color:#ddd
 }
 

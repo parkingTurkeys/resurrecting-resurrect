@@ -45,10 +45,7 @@
         <main>
             <h2>Categories</h2>
                 <?php 
-                    include "secrets.php";
-                    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-                    $mysqli = mysqli_connect("$host", "$username", "$password", "$host", $port);
-                    mysqli_set_charset($mysqli, 'utf8mb4');
+                    include "setup.php";
                     
                         if (array_key_exists("category", $_GET)) {
                             $cate = (int)$_GET["category"];
@@ -70,7 +67,7 @@
                     /*
                     <h4><a href="/web/20250828114724/https://resurrect.cx/topic/3/">Nicto</a></h4>
                     <p>
-                        <i>Started by: <b class="light-gray">vir</b></i>
+                        <i>Started by: <b class="light-grey">vir</b></i>
                     </p>
                     */
                     $stmt = $mysqli->prepare("SELECT * FROM topics WHERE category=?");
@@ -79,7 +76,7 @@
                     $viewable_topics = mysqli_stmt_get_result($stmt);
                     $topicsstoshow_array = $viewable_topics->fetch_all(MYSQLI_ASSOC);
                     foreach ($topicsstoshow_array as $topic) {
-                        echo '<div id = "topic"><h4><a href="topic.php?topic='. $topic["id"] . '">' . $topic["name"] . '</a></h3><p><i>Started by: <b class="light-gray">' . $topic["started_by"] . '</b></i></p></div>';
+                        echo '<div id = "topic"><h4><a href="topic.php?topic='. $topic["id"] . '">' . $topic["name"] . '</a></h3><p><i>Started by: <b class="light-grey">' . $topic["started_by"] . '</b></i></p></div>';
                     };
                 ?>
                 <!--
@@ -103,7 +100,7 @@
                 <h3><a href="./index.php?category=N">Archive</a></h3>
                 <p>
                     Posts from before The Jam.<br>
-                    <i><span class="gray">Children:</span> <b class="light-gray">Projects (Archive), Site Discussion (Archive), Advice (Archive)</b></i></p>
+                    <i><span class="grey">Children:</span> <b class="light-grey">Projects (Archive), Site Discussion (Archive), Advice (Archive)</b></i></p>
             </div>
             -->
   

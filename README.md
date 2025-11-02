@@ -7,7 +7,7 @@ this is a functional version of the static resurrect forums formerly hosted at [
         - [ ] the `<hr />` between some categories
         - [ ] the `moderated by` note for some
     - [x] viewing old topics (just the fact that they exist)
-    - [ ] viewing the posts in old topics
+    - [x] viewing the posts in old topics
 - [ ] accounts
     - [ ] creating accounts
     - [ ] blacklisting some usernames
@@ -24,6 +24,8 @@ this is a functional version of the static resurrect forums formerly hosted at [
     - [ ] banning people
     - [ ] reporting
 - [ ] appearance
+    - [ ] showing banned users as red and crossed through
+    - [ ] adding a back button
     - [ ] "high-contrast mode"
     - [ ] adding light mode
     - [ ] adding themes
