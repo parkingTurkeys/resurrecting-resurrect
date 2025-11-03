@@ -21,7 +21,7 @@
             $user_info = mysqli_stmt_get_result($stmt)->fetch_array(MYSQLI_ASSOC);
             if (password_verify($_POST["password"], $user_info["password_hash"])) {
                 echo "you're logged in as <b>";
-                session_start();
+                //session_start();
                 $_SESSION["user"] = $_POST["username"];
                 $_SESSION["logged_in"] = true;
                 echo $_SESSION["user"];

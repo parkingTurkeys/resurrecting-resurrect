@@ -18,12 +18,19 @@
             <p>
                 <?php
                     include "setup.php";
+                    session_start();
                     $login_status = "Not logged in.";
                     if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] == true) {
-                        $login_status = "Logged in as <b>" . $_SESSION["user"] . "</b>";
+                        $login_status = "Logged in as <b>" . $_SESSION["user"] . '</b> <br /><a href = "index.php?logout=true">Log out</a>';
+                    }
+                    if (isset($_GET["logout"])) {
+                        $_SESSION["user"] = "";
+                        $_SESSION["logged_in"] = false;
+                        echo "<br /><p>Reload the page for the log-out to be seeable</p>";
                     }
                     echo $login_status;
                 ?>
+                
             </p>
         </div>
     </header>
