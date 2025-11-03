@@ -19,6 +19,9 @@
                 <?php
                     include "setup.php";
                     $login_status = "Not logged in.";
+                    if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] == true) {
+                        $login_status = "Logged in as <b>" . $_SESSION["user"] . "</b>";
+                    }
                     echo $login_status;
                 ?>
             </p>

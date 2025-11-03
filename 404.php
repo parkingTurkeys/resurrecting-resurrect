@@ -14,26 +14,7 @@
     </head>
     <body>
         <!-- the base code here is from resurrect.cx -->
-        <header>
-            <div id="header_left">
-                <h1><a href="index.php">resurrect.cx</a></h1>
-                <p id="news">
-                <b>News:</b>
-                <span>
-                    <?php echo $announce ?>
-                    <br>
-                    – p-t
-                </span>
-                </p>
-                <p>Sign-ups are <b>closed.</b></p>
-                <div>
-                <a href="./help.php" class="button">Help</a>
-                </div>
-            </div>
-            <div id="header_right">
-                <p>Not logged in.</p>
-            </div>
-        </header>
+        <?php include "header.php"; ?>
         <main>
             <h2>404</h2>
             <p>not a page sorry :(</p>

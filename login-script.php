@@ -12,32 +12,7 @@
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <header>
-        <div id="header_left">
-        <h1><a href="index.php">resurrect.cx</a></h1>
-            <p id="news">
-                <b>News:</b>
-                    <span>
-                        <?php echo $announce ?>
-                        <br>
-                        – p-t
-                    </span>
-            </p>
-            <p>Sign-ups are <b>closed.</b></p>
-            <div>
-                <a href="./help" class="button">Help</a>
-            </div>
-        </div>
-        <div id="header_right">
-            <p>
-                <?php
-                    include "setup.php";
-                    $login_status = "Not logged in.";
-                    
-                ?>
-            </p>
-        </div>
-    </header>
+    <?php include "header.php"; ?>
     <main>
         <?php
             $stmt = $mysqli->prepare("SELECT * FROM users WHERE username=?");
@@ -46,6 +21,7 @@
             $user_info = mysqli_stmt_get_result($stmt)->fetch_array(MYSQLI_ASSOC);
             if (password_verify($_POST["password"], $user_info["password_hash"])) {
                 echo "you're logged in as <b>";
+                session_start();
                 $_SESSION["user"] = $_POST["username"];
                 $_SESSION["logged_in"] = true;
                 echo $_SESSION["user"];
