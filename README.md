@@ -8,8 +8,9 @@ this is a functional version of the static resurrect forums formerly hosted at [
         - [ ] the `moderated by` note for some
     - [x] viewing old topics (just the fact that they exist)
     - [x] viewing the posts in old topics
+        - [ ] adding emoji viewing
 - [ ] accounts
-    - [ ] creating accounts
+    - [x] creating accounts
     - [ ] blacklisting some usernames
     - [ ] logging into accounts
     - [ ] "forgot password" system
@@ -18,6 +19,7 @@ this is a functional version of the static resurrect forums formerly hosted at [
     - [ ] posting topics
     - [ ] posting posts
     - [ ] editing posts
+    - [ ] nice emoji UI
 - [ ] moderation
     - [ ] locking some non-archived categories
     - [ ] locking posts

@@ -31,15 +31,30 @@
         <div id="header_right">
             <p>
                 <?php
+                    include "setup.php";
                     $login_status = "Not logged in.";
-
-                    echo $login_status;
+                    
                 ?>
             </p>
         </div>
     </header>
     <main>
-        </main>
-    </body>
+        <?php
+            $stmt = $mysqli->prepare("SELECT * FROM users WHERE username=?");
+            $stmt->bind_param("s", $_POST["username"]);
+            $stmt->execute();
+            $user_info = mysqli_stmt_get_result($stmt)->fetch_array(MYSQLI_ASSOC);
+            if (password_verify($_POST["password"], $user_info["password_hash"])) {
+                echo "you're logged in as <b>";
+                $_SESSION["user"] = $_POST["username"];
+                $_SESSION["logged_in"] = true;
+                echo $_SESSION["user"];
+                echo "</b>!";
+            } else {
+                echo "incorrect user or password...";
+            }
+        ?>
+    </main>
+</body>
 </html>
  
