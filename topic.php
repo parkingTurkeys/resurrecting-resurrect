@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php include "global.php" ?>
+<?php include "./global.php" ?>
 <head>
     <title>resurrecting resurrect</title>
     <!-- a lot of basic code is taken from resurrect.cx :3 -->
@@ -12,11 +12,11 @@
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <?php include "header.php"; ?>
+    <?php include "./header.php"; ?>
     <main>
         <?php
         $logged_in = false;
-        include "setup.php";
+        include "./setup.php";
         if (array_key_exists("topic", $_GET)) {
             $topic = (int)$_GET["topic"];
             
@@ -75,11 +75,18 @@
             //now to make the "this topic is locked" or "login to reply"
             if ($topic_info["is_locked"] == 0x01) {
                 echo '<hr /><i><span class="grey">Locked by <b class="light-grey">'. $topic_info["locked_by"] . '</b>.</span></i><hr />';
-            } elseif ($logged_in) {
+            } elseif ($_SESSION["logged_in"]) {
                 //add post form here
+                echo
+                '<hr /><form action = "post-reply-script.php" method="post">
+                <label for = "body">Type your reply here:</label><br />
+                <textarea name = "body" id = "body" ></textarea><br />
+                <button type="submit">Send Reply</button>
+                </form><hr />';
+
             } else {
                 //when not logged in
-                echo '<hr /><i class="gray">Log in to reply.</i><hr />';
+                echo '<hr /><i class="gray"><a href = "login.php">Log in</a> to reply.</i><hr />';
             }
         ?>
     </main>

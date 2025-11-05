@@ -10,6 +10,10 @@
 | parent            | smallint     | YES  |     | NULL    |                |
 +-------------------+--------------+------+-----+---------+----------------+
 INSERT INTO categories (name, description, moderator, is_archived, category_hr_thing, parent ) VALUES
+( "Archive", "Posts from the original resurrect.cx", NULL, 1, 1, 0 ),
+( "Announcements", "Important news for the whole forum.", NULL, 1, 1, 1  ),
+( "The Jam", "Discussion of resurrect.cx's forum-wide jam.", NULL, 1, 1, 1),
+( "Archive (Archive)", "Posts from before The Jam.", NULL, 1, 1, 1),
 ( "Projects (Archive)", "Talk about what you\'re working on.", NULL, 1, 1, 4 ),
 ( "Site Discussion (Archive)", "Talk about this forum.", "rez", 1, 1, 4 ),
 ( "Advice (Archive)", "Get help with non-technical aspects of development.", NULL, 1, 1, 4);

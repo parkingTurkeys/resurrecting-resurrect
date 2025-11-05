@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<?php include "global.php" ?>
+<?php include "./global.php" ?>
 <html>
     <head>
         <title>resurrecting resurrect</title>
@@ -16,11 +16,11 @@
     </head>
     <body>
         <!-- the base code here is from resurrect.cx -->
-        <?php include "header.php"; ?>
+        <?php include "./header.php"; ?>
         <main>
             <h2>Categories</h2>
                 <?php 
-                    include "setup.php";
+                    include "./setup.php";
                     
                         if (array_key_exists("category", $_GET)) {
                             $cate = (int)$_GET["category"];

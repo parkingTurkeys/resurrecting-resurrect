@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php include "global.php" ?>
+<?php include "./global.php" ?>
 <html>
     <head>
         <title>resurrecting resurrect</title>
@@ -14,7 +14,7 @@
     </head>
     <body>
         <!-- the base code here is from resurrect.cx -->
-        <?php include "header.php"; ?>
+        <?php include "./header.php"; ?>
         <main>
             <h2>Help</h2>
             <p><b>resurrect.cx</b> is a forum for a certain type of hacker.</p>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php include "global.php" ?>
+<?php include "./global.php" ?>
 <head>
     <title>resurrecting resurrect</title>
     <!-- a lot of basic code is taken from resurrect.cx :3 -->
@@ -12,7 +12,7 @@
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <?php include "header.php"; ?>
+    <?php include "./header.php"; ?>
     <main>
         <form action = "signup-script.php" method="post">
             <label for = "email">Email:</label><br />

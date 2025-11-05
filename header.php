@@ -17,7 +17,7 @@
         <div id="header_right">
             <p>
                 <?php
-                    include "setup.php";
+                    include "./setup.php";
                     session_start();
                     $login_status = "Not logged in.";
                     if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] == true) {
