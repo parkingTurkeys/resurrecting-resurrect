@@ -34,7 +34,7 @@
                     if ($_POST["password"] == $_POST["password-2"]) {
                         //create account
                         $hashed_pwd = password_hash($_POST["password"], PASSWORD_DEFAULT);
-                        $date_today = date("YYYY-MM-DD");
+                        $date_today = date("Y-m-d");
                         $stmt = $mysqli->prepare("INSERT INTO users (username, email, password_hash, datejoined, colour) VALUES (?,?,?,?, 'FFFFFF'); ");
                         $stmt->bind_param("ssss", $_POST["username"], $_POST["email"],  $hashed_pwd, $date_today);
                         $stmt->execute();
