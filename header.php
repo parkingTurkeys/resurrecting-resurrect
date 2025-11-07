@@ -9,9 +9,9 @@
                         – p-t
                     </span>
             </p>
-            <p>Sign-ups are <b>closed.</b></p>
+            <p>Sign-ups are <b>opened.</b> <a href="signup.php">Sign up here!</a></p>
             <div>
-                <a href="./help" class="button">Help</a>
+                <a href="./help.php" class="button">Help</a>
             </div>
         </div>
         <div id="header_right">
@@ -19,7 +19,7 @@
                 <?php
                     include "./setup.php";
                     
-                    $login_status = "Not logged in.";
+                    $login_status = "Not logged in. <a href= 'login.php'>Log in here!</a>";
                     if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] == true) {
                         $login_status = "Logged in as <b>" . $_SESSION["user"] . '</b> <br /><a href = "index.php?logout=true">Log out</a>';
                     }
