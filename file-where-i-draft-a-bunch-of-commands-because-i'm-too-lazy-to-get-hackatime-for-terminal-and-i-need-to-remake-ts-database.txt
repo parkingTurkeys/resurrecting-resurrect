@@ -69,7 +69,7 @@ PRIMARY KEY     (id)
 );
 
 INSERT INTO topics (name, started_by, category, is_locked) VALUES
- ("Esolang", "glo", 5, 0)
+ 
 
  ("Taffy", "mio", 5, 0),
  ("Nicto", "vir", 5, 0),
@@ -84,7 +84,8 @@ INSERT INTO topics (name, started_by, category, is_locked) VALUES
  ("Encouraging participation", "nop", 6, 0),
  ("Association with Hack Club", "awa", 6, 0),
  ("Artificial intelligence (AI)", "nop", 6, 0),
- ("What is allowed here?", "glo", 6, 0);
+ ("What is allowed here?", "glo", 6, 0),
+ ("Esolang", "glo", 5, 0);
  
 
  
