@@ -9,6 +9,10 @@
 | category_hr_thing | bit(1)       | NO   |     | NULL    |                |
 | parent            | smallint     | YES  |     | NULL    |                |
 +-------------------+--------------+------+-----+---------+----------------+
+
+INSERT INTO categories (name, description, is_archived, category_hr_thing, parent) VALUES 
+( "Testing", "Test the forum's capabilities", 0, 1, 0);
+
 INSERT INTO categories (name, description, moderator, is_archived, category_hr_thing, parent ) VALUES
 ( "Archive", "Posts from the original resurrect.cx", NULL, 1, 1, 0 ),
 ( "Announcements", "Important news for the whole forum.", NULL, 1, 1, 1  ),
@@ -92,6 +96,10 @@ INSERT INTO topics (name, started_by, category, is_locked) VALUES
 INSERT INTO topics (name, started_by, category, is_locked, locked_by) VALUES
  ("Tetris implementation", "abc", 5, 1, "rez"),
  ("You are doing it wrong", "gab", 6, 1, "rez");
+
+
+INSERT INTO topics (name, started_by, category, is_locked) VALUES
+("Test post", "p-t", 8, 0);
 
 CREATE TABLE posts
 (

@@ -76,10 +76,11 @@
             //now to make the "this topic is locked" or "login to reply"
             if ($topic_info["is_locked"] == 0x01) {
                 echo '<hr /><i><span class="grey">Locked by <b class="light-grey">'. $topic_info["locked_by"] . '</b>.</span></i><hr />';
-            } elseif ($_SESSION["logged_in"]) {
+            } elseif (isset($_SESSION["logged_in"])) {
                 //add post form here
+                //$_SESSION["topic"] = $topic_info["id"];
                 echo
-                '<hr /><form action = "post-reply-script.php" method="post">
+                '<hr /><form action = "post-reply-script.php?topic='. $topic_info["id"]. '" method="post">
                 <label for = "body">Type your reply here:</label><br />
                 <textarea name = "body" id = "body" ></textarea><br />
                 <button type="submit">Send Reply</button>

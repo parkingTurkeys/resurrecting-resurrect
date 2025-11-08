@@ -18,7 +18,22 @@
         <?php include "./header.php"; ?>
         <main>
             <?php
-            
+                //INSERT INTO posts (body, author, topic) VALUES
+                if (isset($_SESSION["logged_in"])) {
+                    $stmt = $mysqli->prepare("SELECT * FROM users WHERE username=?");
+                    $stmt->bind_param("s", $_SESSION["user"]);
+                    $stmt->execute();
+                    $user_info = mysqli_stmt_get_result($stmt)->fetch_array(MYSQLI_ASSOC);
+                    if ($user_info["flag"] != 0x02) {
+                        $body = $_POST["body"];
+                        $stmt = $mysqli->prepare("INSERT INTO posts (body, author, topic) VALUES (?,?,?)");
+                        $stmt->bind_param("ssi", $body, $_SESSION["user"], $_GET["topic"]);
+                        $stmt->execute();
+                    }
+                    echo('<meta http-equiv="refresh" content="0;url=topic.php?topic=' . $_GET["topic"] .'">');
+                } else {
+                    echo "Sorry, you have to be logged in to do this!";
+                };
             ?>
         </main>
     </body>
