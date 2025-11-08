@@ -25,18 +25,25 @@
                     $stmt->execute();
                     $user_info = mysqli_stmt_get_result($stmt)->fetch_array(MYSQLI_ASSOC);
                     if ($user_info["flag"] != 0x02) {
-                        //first add the blank topic
-                        $body = $_POST["body"];
-                        $title = $_POST["title"];
-                        $stmt = $mysqli->prepare("INSERT INTO topics (name, started_by, category, is_locked) VALUES (?,?,?,0)");
-                        $stmt->bind_param("ssi", $title, $_SESSION["user"], $_GET["cate"]);
-                        $stmt->execute();
-                        //next add the top reply in the topic
-                        $topic_id = $mysqli->query("SELECT LAST_INSERT_ID();")->fetch_column();
-                        $stmt = $mysqli->prepare("INSERT INTO posts (body, author, topic) VALUES (?,?,?)");
-                        $stmt->bind_param("ssi", $body, $_SESSION["user"], $topic_id);
-                        $stmt->execute();
-                    }
+                        //check that the category isn't archived
+                        if ($mysqli->prepare("SELECT * FROM categories WHERE id=?")->bind_param("i", $_GET["cate"])->execute()->get_result()->fetch_column(4) == 0) {
+                            //first add the blank topic
+                            $body = $_POST["body"];
+                            $title = $_POST["title"];
+                            $stmt = $mysqli->prepare("INSERT INTO topics (name, started_by, category, is_locked) VALUES (?,?,?,0)");
+                            $stmt->bind_param("ssi", $title, $_SESSION["user"], $_GET["cate"]);
+                            $stmt->execute();
+                            //next add the top reply in the topic
+                            $topic_id = $mysqli->query("SELECT LAST_INSERT_ID();")->fetch_column();
+                            $stmt = $mysqli->prepare("INSERT INTO posts (body, author, topic) VALUES (?,?,?)");
+                            $stmt->bind_param("ssi", $body, $_SESSION["user"], $topic_id);
+                            $stmt->execute();
+                        } else {
+                            echo "Sorry, this category is archived.";
+                        };
+                    } else {
+                        echo "Sorry, you're banned loll.";
+                    };
                     echo('<meta http-equiv="refresh" content="0;url=index.php?category=' . $_GET["cate"] .'">');
                 } else {
                     echo "Sorry, you have to be logged in to do this!";

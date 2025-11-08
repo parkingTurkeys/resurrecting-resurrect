@@ -20,17 +20,28 @@
             <?php
                 //INSERT INTO posts (body, author, topic) VALUES
                 if (isset($_SESSION["logged_in"])) {
-                    $stmt = $mysqli->prepare("SELECT * FROM users WHERE username=?");
-                    $stmt->bind_param("s", $_SESSION["user"]);
-                    $stmt->execute();
-                    $user_info = mysqli_stmt_get_result($stmt)->fetch_array(MYSQLI_ASSOC);
-                    if ($user_info["flag"] != 0x02) {
-                        $body = $_POST["body"];
-                        $stmt = $mysqli->prepare("INSERT INTO posts (body, author, topic) VALUES (?,?,?)");
-                        $stmt->bind_param("ssi", $body, $_SESSION["user"], $_GET["topic"]);
+                    //check that you are allowed to post in the topic & category
+                    //1. get the topic info
+                    $topic_info = $mysqli->prepare("SELECT * FROM topics     WHERE id=?")->bind_param("i", $_GET["topic"]         )->execute()->fetch_array();
+                    //2. get the category info
+                    $cate_info  = $mysqli->prepare("SELECT * FROM categories WHERE id=?")->bind_param("i", $topic_info["category"])->execute()->fetch_array();
+                    //3. check that neither is locked!
+                    if ($topic_info["is_locked"] != 1 && $cate_info["is_archived"] != 1) {
+                        $stmt = $mysqli->prepare("SELECT * FROM users WHERE username=?");
+                        $stmt->bind_param("s", $_SESSION["user"]);
                         $stmt->execute();
-                    }
-                    echo('<meta http-equiv="refresh" content="0;url=topic.php?topic=' . $_GET["topic"] .'">');
+                        $user_info = mysqli_stmt_get_result($stmt)->fetch_array(MYSQLI_ASSOC);
+                        if ($user_info["flag"] != 0x02) {
+                            $body = $_POST["body"];
+                            $stmt = $mysqli->prepare("INSERT INTO posts (body, author, topic) VALUES (?,?,?)");
+                            $stmt->bind_param("ssi", $body, $_SESSION["user"], $_GET["topic"]);
+                            $stmt->execute();
+                        }
+                        echo('<meta http-equiv="refresh" content="0;url=topic.php?topic=' . $_GET["topic"] .'">');
+                    } else {
+                        echo "you can't post here, sorry!";
+                    };
+                    
                 } else {
                     echo "Sorry, you have to be logged in to do this!";
                 };
