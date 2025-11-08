@@ -12,7 +12,7 @@ this is a functional version of the static resurrect forums formerly hosted at [
 - [ ] accounts
     - [x] creating accounts
     - [ ] blacklisting some usernames
-    - [ ] logging into accounts
+    - [x] logging into accounts
     - [ ] "forgot password" system
     - [ ] settings?
 - [ ] posting
@@ -34,5 +34,5 @@ this is a functional version of the static resurrect forums formerly hosted at [
 - [ ] technical
     - [x] not allowing sql injection
     - [ ] make changing usernames possible [may never happen]
-    - [ ] deploying it ;-;
+    - [x] deploying it ;-; *kind of done*
 
