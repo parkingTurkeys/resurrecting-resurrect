@@ -17,7 +17,7 @@ this is a functional version of the static resurrect forums formerly hosted at [
     - [ ] settings?
 - [ ] posting
     - [ ] posting topics
-    - [ ] posting posts
+    - [x] posting posts
     - [ ] editing posts
     - [ ] nice emoji UI
 - [ ] moderation
