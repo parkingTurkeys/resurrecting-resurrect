@@ -55,6 +55,32 @@
                         echo '<div id = "topic"><h4><a href="topic.php?topic='. $topic["id"] . '">' . $topic["name"] . '</a></h3><p><i>Started by: <b class="light-grey">' . $topic["started_by"] . '</b></i></p></div>';
                     };
                 ?>
+                <!-- And now... creating topics! -->
+                <?php
+                    if ($cate != 0) {
+                    $stmt = $mysqli->prepare("SELECT * FROM categories WHERE id=?");
+                    $stmt->bind_param("i", $cate);
+                    $stmt->execute();
+                    $cate_info = mysqli_stmt_get_result($stmt)->fetch_array(MYSQLI_ASSOC);
+                    $post_allowed = true;
+                    $post_blurb = "<p><a href = 'login.php'>Log in</a> to be able to post!</p>";
+                    if ($cate_info["is_archived"] == 1) {
+                        $post_blurb = "<p>This category is archived; new posts are no longer permitted.</p>";
+                    } elseif (false) {
+                        //replace this with the "locked" logic later
+                    } elseif (isset($_SESSION["logged_in"])) {
+                        $post_blurb =
+                        '<hr /><h3>New Topic</h3><form action = "post-topic-script.php?cate='. $cate_info["id"] . '" method="post">
+                        <label for = "title">Title your post here:</label><br />
+                        <input name = "title" id = "title"></input><br />
+                        <label for = "body">Type your post here:</label><br />
+                        <textarea name = "body" id = "body" ></textarea><br />
+                        <button type="submit">Post Topic</button>
+                        </form><hr />';
+                    }
+                    echo $post_blurb;
+                }
+                ?>
                 <!--
                 <div class="category">
                 <h3><a href="./index.php?category=N">Announcements</a></h3>

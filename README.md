@@ -1,6 +1,8 @@
 # resurrecting resurrect
 this is a functional version of the static resurrect forums formerly hosted at [resurrect.cx](resurrect.cx). 
 
+check it out at [resurrect.p-t.hackclub.app](resurrect.p-t.hackclub.app)! this may be down b/c i am stupid and can't figure out systemd or whatever.
+
 ## what is[n't] finished:
 - [ ] the archive
     - [x] viewing old categories
@@ -16,7 +18,7 @@ this is a functional version of the static resurrect forums formerly hosted at [
     - [ ] "forgot password" system
     - [ ] settings?
 - [ ] posting
-    - [ ] posting topics
+    - [x] posting topics
     - [x] posting posts
     - [ ] editing posts
     - [ ] nice emoji UI
