@@ -50,6 +50,7 @@
                 $stmt->bind_param("s", $post["author"]);
                 $stmt->execute();
                 $user_info = mysqli_stmt_get_result($stmt)->fetch_array(MYSQLI_ASSOC);
+                $body = str_replace($emoji_codes, $emoji_html, $post["body"]);
                 if (isset($user_info)) {
                     if (is_null($user_info["flag"]) != true ) {
                         switch ($user_info["flag"]) {
@@ -66,9 +67,9 @@
                     } else {
                         $flag_img = "";
                     }
-                    echo '<div class="reply"><p><b style="color: #' . $user_info["colour"] . '">' . $post["author"] . '</b> ' . $flag_img . ' <i class="grey"><small>(#' . $post["id"] . ')</small></i></p>' . $post["body"] . '</div>';
+                    echo '<div class="reply"><p><b style="color: #' . $user_info["colour"] . '">' . $post["author"] . '</b> ' . $flag_img . ' <i class="grey"><small>(#' . $post["id"] . ')</small></i></p>' . $body . '</div>';
                 } else {
-                    echo '<div class="reply"><p><b style="color: #FFFFFF">' . $post["author"] . '</b> <img src="/flags/legacy.png" title="archived"> <i class="grey"><small>(#' . $post["id"] . ')</small></i></p>' . $post["body"] . '</div>';
+                    echo '<div class="reply"><p><b style="color: #FFFFFF">' . $post["author"] . '</b> <img src="/flags/legacy.png" title="archived"> <i class="grey"><small>(#' . $post["id"] . ')</small></i></p>' . $body . '</div>';
             }
             }
         ?>
